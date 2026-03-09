@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Southern Ghost Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAV ══════════════════════════════════ -->
+<nav>
+  <span class="nav-logo" onclick="showPage('home')">Southern Ghost Tours</span>
+
+  <ul class="nav-links">
+    <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+    <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+    <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+    <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+    <li><a onclick="showPage('private')">Private Events</a></li>
+    <li><a onclick="showPage('faq')">FAQ</a></li>
+  </ul>
+
+  <div class="nav-socials">
+    <a href="https://www.facebook.com/southernghosttours" target="_blank">FB</a>
+    <a href="https://www.instagram.com/southernghosttours/" target="_blank">IG</a>
+  </div>
+
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');toggleMenu()">Home</a>
+  <a onclick="showPage('mcdonough-walk');toggleMenu()">Ghost Walk – McDonough</a>
+  <a onclick="showPage('mcdonough-pub');toggleMenu()">Pub Crawl – McDonough</a>
+  <a onclick="showPage('conyers-walk');toggleMenu()">Ghost Walk – Conyers</a>
+  <a onclick="showPage('conyers-pub');toggleMenu()">Pub Crawl – Conyers</a>
+  <a onclick="showPage('private');toggleMenu()">Private Events</a>
+  <a onclick="showPage('faq');toggleMenu()">FAQ</a>
+</div>
+
+<!-- ═══════════════════════════════════ HOME ═════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-bg" style="background-position: center 10%; background-image: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.55) 60%, rgba(10,10,10,1) 100%), url('https://images.unsplash.com/photo-1553465528-5a213ccc0c7b?q=80&w=698&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">McDonough & Conyers, Georgia</p>
+      <h1 class="hero-title">Southern<br><em>Ghost Tours</em></h1>
+      <p class="hero-sub">Historic walks. Haunted history. Real stories from the South.</p>
+      <div class="hero-cta-row">
+        <span class="btn btn-primary" onclick="document.getElementById('tours-section').scrollIntoView({behavior:'smooth'})">View All Tours</span>
+        <span class="btn btn-outline" onclick="showPage('private')">Private Events</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <section style="padding-top: 0; padding-bottom: 0;">
+    <div class="stat-row">
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Historic Cities</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Tour Experiences</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">90</div>
+        <div class="stat-label">Minutes Per Walk</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15%</div>
+        <div class="stat-label">Group Discount (10+)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tours -->
+  <section id="tours-section">
+    <p class="section-eyebrow">Our Experiences</p>
+    <h2 class="section-title">Choose Your<br><em>Night Out</em></h2>
+    <p class="section-body" style="margin-bottom: 56px;">From intimate evening walks through gas-lit streets to pub crawls through Georgia's most haunted bars — each tour is a different chapter of the South's unsettled past.</p>
+
+    <div class="tours-grid">
+      <div class="tour-card" onclick="showPage('mcdonough-walk')">
+        <div class="tour-card-bg" style="background-position: center 70%; background-image: url('https://images.unsplash.com/photo-1756628984155-e8cce24a8e01?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTh8fGdyb3VwJTIwd2FsayUyMG5pZ2h0fGVufDB8fDB8fHww');"></div>
+        <div class="tour-card-overlay"></div>
+        <div class="tour-card-arrow">→</div>
+        <div class="tour-card-content">
+          <div class="tour-card-location">McDonough</div>
+          <div class="tour-card-title">Haunted Ghost Walk</div>
+          <div class="tour-card-price">From $25 · 90 min · Fri–Sun</div>
+        </div>
+      </div>
+
+      <div class="tour-card" onclick="showPage('mcdonough-pub')">
+        <div class="tour-card-bg" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=900&q=80');"></div>
+        <div class="tour-card-overlay"></div>
+        <div class="tour-card-arrow">→</div>
+        <div class="tour-card-content">
+          <div class="tour-card-location">McDonough</div>
+          <div class="tour-card-title">Haunted Pub Crawl</div>
+          <div class="tour-card-price">$40 · Ages 21+ · Every Other Sat</div>
+        </div>
+      </div>
+
+      <div class="tour-card" onclick="showPage('conyers-walk')">
+        <div class="tour-card-bg" style="background-image: url('https://images.unsplash.com/photo-1559685473-cf26f795b963?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+        <div class="tour-card-overlay"></div>
+        <div class="tour-card-arrow">→</div>
+        <div class="tour-card-content">
+          <div class="tour-card-location">Conyers</div>
+          <div class="tour-card-title">Haunted Ghost Walk</div>
+          <div class="tour-card-price">From $20 · 90 min · Fri–Sun</div>
+        </div>
+      </div>
+
+      <div class="tour-card" onclick="showPage('conyers-pub')">
+        <div class="tour-card-bg" style="background-image: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=900&q=80');"></div>
+        <div class="tour-card-overlay"></div>
+        <div class="tour-card-arrow">→</div>
+        <div class="tour-card-content">
+          <div class="tour-card-location">Conyers</div>
+          <div class="tour-card-title">Haunted Pub Crawl</div>
+          <div class="tour-card-price">$40 · Ages 21+ · Olde Town</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- About -->
+  <section>
+    <div class="about-split">
+      <div>
+        <p class="section-eyebrow">About Us</p>
+        <h2 class="section-title">Georgia's Most <em>Haunted</em> Stories</h2>
+        <p class="section-body" style="margin-bottom: 24px;">Southern Ghost Tours was founded on a simple belief: the South's most compelling history lives in the shadows. Our guides — James and Susan — have spent years researching the paranormal activity, local legends, and true hauntings that make McDonough and Conyers two of Georgia's most storied towns.</p>
+        <p class="section-body" style="margin-bottom: 40px;">These aren't campfire tales. They're documented encounters, historical records, and first-hand accounts from the people who still live alongside the spirits that never left.</p>
+        <span class="btn btn-outline" onclick="showPage('private')">Plan a Private Event</span>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1605595988901-3d06601c38ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2NyZWFtfGVufDB8fDB8fHww" alt="Historic downtown at night" />
+        <div class="about-accent"></div>
+      </div>
+    </div>
+
+    <!-- Guides -->
+    <div class="guides-row">
+      <div class="guide-card">
+        <div class="guide-initial">J</div>
+        <div>
+          <div class="guide-name">James</div>
+          <div class="guide-role">Ghost Guide</div>
+        </div>
+      </div>
+      <div class="guide-card">
+        <div class="guide-initial">S</div>
+        <div>
+          <div class="guide-name">Susan</div>
+          <div class="guide-role">Ghost Guide</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Private CTA -->
+  <section style="padding-top: 0;">
+    <div style="background: var(--surface); border: 1px solid var(--border); padding: 64px 56px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
+      <div>
+        <p class="section-eyebrow">Private Groups</p>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--bone);">Celebrate Something<br><em style="color: var(--gold);">Unforgettable</em></h3>
+      </div>
+      <div style="text-align: right;">
+        <p style="color: var(--bone-dim); font-size: 13px; margin-bottom: 24px; max-width: 320px;">Bachelorette parties, corporate events, birthday tours, murder mystery dinners, and more. Groups of 10+ receive 15% off.</p>
+        <span class="btn btn-primary" onclick="showPage('private')">Explore Private Events</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia — McDonough and Conyers.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+        <li><a onclick="showPage('private')">Private Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="https://www.facebook.com/southernghosttours" target="_blank">Facebook</a></li>
+        <li><a href="https://www.instagram.com/southernghosttours/" target="_blank">Instagram</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours. All rights reserved.</span>
+    <span style="letter-spacing: 0.2em;">McDonough &amp; Conyers, GA</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ MCDONOUGH GHOST WALK ══════════════════════ -->
+<div class="page" id="page-mcdonough-walk">
+  <div class="tour-hero">
+    <div class="tour-hero-bg" style="background-position: center 42%; background-image: url('https://images.unsplash.com/photo-1549992609-7a9043b5bf6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2Fsa3xlbnwwfHwwfHx8MA%3D%3D');"></div>
+    <div class="tour-hero-overlay"></div>
+    <div class="tour-hero-content">
+      <a class="breadcrumb" onclick="showPage('home')">← All Tours</a>
+      <p class="section-eyebrow">McDonough, Georgia</p>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 80px); font-weight: 300; color: var(--bone); line-height: 1.0;">Haunted<br><em style="color: var(--gold);">Ghost Walk</em></h1>
+    </div>
+  </div>
+
+  <div class="tour-detail-body">
+    <div>
+      <p class="tour-description">Step into the eerie heart of historic McDonough, Georgia — a town where the past has never fully let go. Our guided ghost walk leads you through the candlelit squares and shadowed alleys of one of Henry County's most storied downtowns, where witnesses have reported apparitions, unexplained sounds, and encounters that defy explanation.</p>
+      <p class="tour-description">Your guide will share documented accounts of paranormal activity, the dark histories of McDonough's most notable landmarks, and the legends passed down for generations by those who lived — and died — here.</p>
+      <p class="tour-description">This is not entertainment. This is history.</p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--bone); margin-bottom: 20px; margin-top: 40px;">What to Expect</h3>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9; margin-bottom: 12px;">Tours operate rain or shine. In the event of severe weather, all tickets will be honored at a future date. Comfortable walking shoes are strongly recommended — you'll cover a meaningful stretch of the historic district on foot.</p>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9;">Advance tickets are highly recommended as space is limited on every tour.</p>
+
+      <div style="margin-top: 48px;">
+        <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Start Location</p>
+        <p style="color: var(--bone); font-size: 15px;">McDonough Welcome Center<br><span style="color: var(--bone-dim);">5 Griffin Street, McDonough, GA</span></p>
+      </div>
+    </div>
+
+    <div class="tour-sidebar">
+      <div class="sidebar-price">$25–$30</div>
+      <div class="sidebar-price-label">per person</div>
+
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Adults</span>
+        <span class="sidebar-detail-value">$30</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Children (12 &amp; under)</span>
+        <span class="sidebar-detail-value">$20</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Seniors (60+)</span>
+        <span class="sidebar-detail-value">$20</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Duration</span>
+        <span class="sidebar-detail-value">~90 minutes</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Schedule</span>
+        <span class="sidebar-detail-value">Fri, Sat, Sun at 7:30 PM</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Ages</span>
+        <span class="sidebar-detail-value">All ages welcome</span>
+      </div>
+
+      <a class="btn btn-primary" href="https://fareharbor.com/embeds/book/mcdonoughghosttours/items/493211/?full-items=yes&flow=1038949" target="_blank" style="display: block; text-align: center; margin-top: 32px; width: 100%;">Book Tickets</a>
+
+      <p class="sidebar-notice">Gratuity for guides is not included in the ticket price and is always appreciated.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('private')">Private Events</a></li>
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours.</span>
+    <span style="cursor:pointer; letter-spacing:0.15em;" onclick="showPage('home')">← Back to Home</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ MCDONOUGH PUB CRAWL ══════════════════════ -->
+<div class="page" id="page-mcdonough-pub">
+  <div class="tour-hero">
+    <div class="tour-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1800&q=80');"></div>
+    <div class="tour-hero-overlay"></div>
+    <div class="tour-hero-content">
+      <a class="breadcrumb" onclick="showPage('home')">← All Tours</a>
+      <p class="section-eyebrow">McDonough, Georgia</p>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 80px); font-weight: 300; color: var(--bone); line-height: 1.0;">Haunted<br><em style="color: var(--gold);">Pub Crawl</em></h1>
+    </div>
+  </div>
+
+  <div class="tour-detail-body">
+    <div>
+      <p class="tour-description">The spirits of McDonough linger long after closing time — and so will you. Southern Ghost Tours has partnered with several of the square's most notoriously haunted bars and restaurants to bring you an evening that blends paranormal history with genuine Southern hospitality.</p>
+      <p class="tour-description">As you move from venue to venue, your guide will reveal the stories of those who refused to leave after last call — the dearly departed who still call these establishments home. Between hauntings, take advantage of exclusive drink specials and discounts offered at each stop.</p>
+      <p class="tour-description">Think ghost stories are just for kids? Think again.</p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--bone); margin-bottom: 20px; margin-top: 40px;">Good to Know</h3>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9; margin-bottom: 12px;">This tour is strictly 21 and older. Valid ID is required at check-in. Alcohol is encouraged but never required.</p>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9; margin-bottom: 12px;">The City of McDonough permits drinks outside in the dining district using a McDonough carry cup. No drinking is allowed in the center of the square.</p>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9;">Southern Ghost Tours has no affiliation with private establishments and is not responsible for the purchase or consumption of alcoholic beverages.</p>
+
+      <div style="margin-top: 48px;">
+        <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Start Location</p>
+        <p style="color: var(--bone); font-size: 15px;">McDonough Welcome Center<br><span style="color: var(--bone-dim);">5 Griffin Street, McDonough, GA</span></p>
+      </div>
+    </div>
+
+    <div class="tour-sidebar">
+      <div class="sidebar-price">$40</div>
+      <div class="sidebar-price-label">per adult</div>
+
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Price</span>
+        <span class="sidebar-detail-value">$40 per person</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Age Requirement</span>
+        <span class="sidebar-detail-value">21+ with valid ID</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Duration</span>
+        <span class="sidebar-detail-value">~2 hours</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Schedule</span>
+        <span class="sidebar-detail-value">Every other Saturday</span>
+      </div>
+
+      <a class="btn btn-primary" href="https://fareharbor.com/embeds/book/mcdonoughghosttours/items/492634/?full-items=yes&flow=1038949" target="_blank" style="display: block; text-align: center; margin-top: 32px; width: 100%;">Book Tickets</a>
+
+      <p class="sidebar-notice">Gratuity for guides is not included in the ticket price and is always appreciated.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('private')">Private Events</a></li>
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours.</span>
+    <span style="cursor:pointer; letter-spacing:0.15em;" onclick="showPage('home')">← Back to Home</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ CONYERS GHOST WALK ═══════════════════════ -->
+<div class="page" id="page-conyers-walk">
+  <div class="tour-hero">
+    <div class="tour-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1526420474246-4090e987e0c1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTV8fHdhbGt8ZW58MHx8MHx8fDA%3D');"></div>
+    <div class="tour-hero-overlay"></div>
+    <div class="tour-hero-content">
+      <a class="breadcrumb" onclick="showPage('home')">← All Tours</a>
+      <p class="section-eyebrow">Conyers, Georgia</p>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 80px); font-weight: 300; color: var(--bone); line-height: 1.0;">Haunted<br><em style="color: var(--gold);">Ghost Walk</em></h1>
+    </div>
+  </div>
+
+  <div class="tour-detail-body">
+    <div>
+      <p class="tour-description">Conyers sits in the heart of a state steeped in eerie legends — and it has its own whispers too. This 90-minute walk through historic downtown Conyers takes you past the old textile mill ruins, down streets where locals have reported shadowy figures, and through areas where temperature drops have been documented and disembodied voices heard.</p>
+      <p class="tour-description">If you're ever in Conyers late at night and hear footsteps behind you on a quiet street — maybe don't turn around too fast.</p>
+      <p class="tour-description">Our guide will walk you through the documented history of the paranormal in this remarkable town, separating legend from fact and revealing stories that have never fully been explained.</p>
+
+      <div style="margin-top: 48px;">
+        <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Start Location</p>
+        <p style="color: var(--bone); font-size: 15px;">The Boo-Tique<br><span style="color: var(--bone-dim);">916 Center Street, Conyers, GA</span></p>
+      </div>
+    </div>
+
+    <div class="tour-sidebar">
+      <div class="sidebar-price">$20–$30</div>
+      <div class="sidebar-price-label">per person</div>
+
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Adults</span>
+        <span class="sidebar-detail-value">$30</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Children (12 &amp; under)</span>
+        <span class="sidebar-detail-value">$20</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Seniors (60+)</span>
+        <span class="sidebar-detail-value">$20</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Duration</span>
+        <span class="sidebar-detail-value">~90 minutes</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Schedule</span>
+        <span class="sidebar-detail-value">Fri, Sat, Sun at 7:30 PM</span>
+      </div>
+
+      <a class="btn btn-primary" href="https://fareharbor.com/embeds/book/mcdonoughghosttours/items/493211/?full-items=yes&flow=1038949" target="_blank" style="display: block; text-align: center; margin-top: 32px; width: 100%;">Book Tickets</a>
+
+      <p class="sidebar-notice">Gratuity for guides is not included in the ticket price and is always appreciated.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('private')">Private Events</a></li>
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours.</span>
+    <span style="cursor:pointer; letter-spacing:0.15em;" onclick="showPage('home')">← Back to Home</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ CONYERS PUB CRAWL ════════════════════════ -->
+<div class="page" id="page-conyers-pub">
+  <div class="tour-hero">
+    <div class="tour-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=1800&q=80');"></div>
+    <div class="tour-hero-overlay"></div>
+    <div class="tour-hero-content">
+      <a class="breadcrumb" onclick="showPage('home')">← All Tours</a>
+      <p class="section-eyebrow">Conyers, Georgia</p>
+      <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 80px); font-weight: 300; color: var(--bone); line-height: 1.0;">Haunted<br><em style="color: var(--gold);">Pub Crawl</em></h1>
+    </div>
+  </div>
+
+  <div class="tour-detail-body">
+    <div>
+      <p class="tour-description">Prepare for a chilling evening of haunted history, ghostly encounters, and spirited drinks as we crawl through the eerie heart of Olde Town Conyers. This is not your average pub crawl — each stop is steeped in spine-tingling legends and documented paranormal activity.</p>
+      <p class="tour-description">Your night begins with a bone-chilling walking tour through Conyers' historic streets. Discover the town's haunted past and hear accounts of ghostly apparitions that have been reported for decades by residents and visitors alike.</p>
+      <p class="tour-description">Whether you're a committed believer or a curious skeptic, this evening delivers something genuinely unexpected.</p>
+
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 24px; color: var(--bone); margin-bottom: 20px; margin-top: 40px;">Good to Know</h3>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9; margin-bottom: 12px;">This tour is strictly 21 and older. Valid ID required at check-in.</p>
+      <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9;">The City of Conyers allows drinks outside in the entertainment district.</p>
+
+      <div style="margin-top: 48px;">
+        <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;">Start Location</p>
+        <p style="color: var(--bone); font-size: 15px;">The Boo-Tique<br><span style="color: var(--bone-dim);">916 Center Street, Conyers, GA</span></p>
+      </div>
+    </div>
+
+    <div class="tour-sidebar">
+      <div class="sidebar-price">$40</div>
+      <div class="sidebar-price-label">per adult</div>
+
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Price</span>
+        <span class="sidebar-detail-value">$40 per person</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Age Requirement</span>
+        <span class="sidebar-detail-value">21+ with valid ID</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Duration</span>
+        <span class="sidebar-detail-value">~2 hours</span>
+      </div>
+      <div class="sidebar-detail">
+        <span class="sidebar-detail-label">Location</span>
+        <span class="sidebar-detail-value">Olde Town Conyers</span>
+      </div>
+
+      <a class="btn btn-primary" href="https://fareharbor.com/embeds/book/mcdonoughghosttours/items/659539/?full-items=yes&flow=1038949" target="_blank" style="display: block; text-align: center; margin-top: 32px; width: 100%;">Book Tickets</a>
+
+      <p class="sidebar-notice">Gratuity for guides is not included in the ticket price and is always appreciated.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('private')">Private Events</a></li>
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours.</span>
+    <span style="cursor:pointer; letter-spacing:0.15em;" onclick="showPage('home')">← Back to Home</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PRIVATE ══════════════════════════════════ -->
+<div class="page" id="page-private">
+  <div style="padding-top: 72px;"></div>
+  <section>
+    <a class="breadcrumb" onclick="showPage('home')">← Back to Home</a>
+    <div class="private-hero-text">
+      <p class="section-eyebrow">Private Events & Groups</p>
+      <h1 class="section-title">Plan Something <em>Extraordinary</em></h1>
+      <p class="section-body">McDonough and Conyers are exceptional settings for private gatherings. Southern Ghost Tours handles everything — from intimate birthday parties to full corporate events — with the same level of care and storytelling that defines every public tour.</p>
+    </div>
+
+    <div class="events-list">
+      <div class="event-item"><div class="event-number">01</div><div class="event-name">Private Ghost Walk</div></div>
+      <div class="event-item"><div class="event-number">02</div><div class="event-name">Private Pub Crawl</div></div>
+      <div class="event-item"><div class="event-number">03</div><div class="event-name">Murder Mystery Dinner</div></div>
+      <div class="event-item"><div class="event-number">04</div><div class="event-name">Scavenger Hunt</div></div>
+      <div class="event-item"><div class="event-number">05</div><div class="event-name">Sweet Saunter (Dessert Crawl)</div></div>
+      <div class="event-item"><div class="event-number">06</div><div class="event-name">Goodies &amp; Ghouls</div></div>
+      <div class="event-item"><div class="event-number">07</div><div class="event-name">Birthday Parties</div></div>
+      <div class="event-item"><div class="event-number">08</div><div class="event-name">Bachelorette &amp; Bachelor Parties</div></div>
+      <div class="event-item"><div class="event-number">09</div><div class="event-name">Family Reunions</div></div>
+      <div class="event-item"><div class="event-number">10</div><div class="event-name">Corporate Team Building</div></div>
+    </div>
+
+    <div class="contact-box">
+      <div>
+        <p class="footer-heading" style="margin-bottom: 12px;">Contact Us Directly</p>
+        <div class="contact-phone">470-447-8835</div>
+        <p class="contact-detail">Southern Ghost Tours Office</p>
+        <div class="discount-badge">
+          <div class="discount-pct">15%</div>
+          <div class="discount-text">Group discount<br>for 10 or more</div>
+        </div>
+      </div>
+      <div>
+        <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9; margin-bottom: 24px;">All private events are available by contacting the Southern Ghost Tours office directly. Availability is limited and reservations must be made in advance. Tickets are purchased at the time of booking and are non-refundable.</p>
+        <p style="color: var(--bone-dim); font-size: 14px; line-height: 1.9;">For groups of ten or more, a 15% discount is automatically applied to your booking.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('faq')">FAQ</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours.</span>
+    <span style="cursor:pointer; letter-spacing:0.15em;" onclick="showPage('home')">← Back to Home</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ FAQ ══════════════════════════════════════ -->
+<div class="page" id="page-faq">
+  <div style="padding-top: 72px;"></div>
+  <section>
+    <a class="breadcrumb" onclick="showPage('home')">← Back to Home</a>
+    <p class="section-eyebrow">Questions & Answers</p>
+    <h1 class="section-title">Frequently<br><em>Asked Questions</em></h1>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Do I have to purchase tickets in advance?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Advance tickets are highly recommended. Space on all tours is limited and reservations will not be held without a ticket.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Where do I park?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong style="color: var(--bone); display: block; margin-bottom: 8px;">McDonough</strong>
+            There are several street parking spots and lots around the square offering free parking on evenings and weekends. A parking deck is located behind the Court House. There is also a lot on the corner of Hampton Street and Tarpley.
+            <br><br>
+            <strong style="color: var(--bone); display: block; margin-bottom: 8px;">Conyers</strong>
+            Several street spots offer free parking around Conyers. There is a lot behind The Boo-Tique, accessible from Elm Street just north of Railroad Avenue.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Where and when do I check in?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong style="color: var(--bone); display: block; margin-bottom: 8px;">McDonough</strong>
+            Meet at the McDonough Welcome Center, 5 Griffin Street. Please arrive 10–15 minutes before your scheduled tour time.
+            <br><br>
+            <strong style="color: var(--bone); display: block; margin-bottom: 8px;">Conyers</strong>
+            Meet at The Boo-Tique, 916 Center Street. Please arrive 10–15 minutes before your scheduled tour time.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Should we tip our guides?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">If your guide has done a great job, tips are always appreciated. The amount is entirely at your discretion and varies by tour and group size. Gratuity reflects customer appreciation for excellent service.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How long are the tours?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Ghost Walks are approximately 90 minutes. Pub Crawls run approximately 2 hours.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What happens in bad weather?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Tours operate rain or shine. In the event of severe weather, the tour will be cancelled and all tickets will be issued a rain check for a future date. If you prefer not to attend due to unfavorable weather conditions, we will happily issue a rain check.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Are the tours handicap accessible?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">If you've navigated the sidewalks and curbs in either historic district, we'd love to have you join us. We cannot guarantee the route is 100% accessible for every situation — please contact us directly so we can better understand your needs and accommodate you.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I bring alcohol on the tour?
+          <div class="faq-icon">+</div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <strong style="color: var(--bone); display: block; margin-bottom: 8px;">McDonough</strong>
+            You may not bring your own alcohol, but you may purchase drinks in a McDonough carry cup from participating establishments. Alcohol is not permitted in the center of the square.
+            <br><br>
+            <strong style="color: var(--bone); display: block; margin-bottom: 8px;">Conyers</strong>
+            You may purchase drinks from any establishment while on the ghost walk. The City of Conyers permits drinks outside in the entertainment district.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Southern Ghost Tours</div>
+      <p class="footer-tagline">Haunted history tours through the heart of Georgia.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Tours</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('mcdonough-walk')">Ghost Walk – McDonough</a></li>
+        <li><a onclick="showPage('mcdonough-pub')">Pub Crawl – McDonough</a></li>
+        <li><a onclick="showPage('conyers-walk')">Ghost Walk – Conyers</a></li>
+        <li><a onclick="showPage('conyers-pub')">Pub Crawl – Conyers</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Info</div>
+      <ul class="footer-links">
+        <li><a onclick="showPage('private')">Private Events</a></li>
+        <li><a href="tel:4704478835">470-447-8835</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <span>© 2026 Southern Ghost Tours.</span>
+    <span style="cursor:pointer; letter-spacing:0.15em;" onclick="showPage('home')">← Back to Home</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ JS ════════════════════════════════════ -->
+<script src="js/main.js"></script>
+</body>
+</html>

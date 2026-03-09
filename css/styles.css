@@ -1,0 +1,846 @@
+
+  :root {
+    --black: #0a0a0a;
+    --deep: #111010;
+    --surface: #161414;
+    --surface2: #1e1b1b;
+    --border: rgba(255,255,255,0.07);
+    --bone: #e8e0d4;
+    --bone-dim: rgba(232,224,212,0.55);
+    --bone-faint: rgba(232,224,212,0.15);
+    --gold: #b8976a;
+    --gold-dim: rgba(184,151,106,0.4);
+    --red: #8b2e2e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--bone);
+    font-family: 'Archivo', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    cursor: default;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.97), rgba(10,10,10,0));
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bone);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover { color: var(--bone); }
+
+  .nav-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .nav-socials a {
+    color: var(--bone-dim);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-socials a:hover { color: var(--gold); }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--bone);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px; left: 0; right: 0;
+    background: rgba(10,10,10,0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 48px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--bone); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.5) 60%, rgba(10,10,10,1) 100%),
+      url('https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=1800&q=80') center/cover no-repeat;
+    transform: scale(1.04);
+    animation: slowzoom 20s ease-out forwards;
+  }
+
+  @keyframes slowzoom {
+    from { transform: scale(1.04); }
+    to   { transform: scale(1.0); }
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 24px;
+    animation: fadein 1.6s ease both;
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 9vw, 110px);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--bone);
+    margin-bottom: 28px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    color: var(--bone-dim);
+    max-width: 420px;
+    margin: 0 auto 44px;
+    text-transform: uppercase;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-block;
+    padding: 14px 36px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+    font-family: 'Archivo', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+  }
+  .btn-primary:hover { background: var(--bone); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--bone);
+    border: 1px solid rgba(232,224,212,0.3);
+  }
+  .btn-outline:hover {
+    border-color: var(--bone);
+    background: var(--bone-faint);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--bone);
+    margin-bottom: 20px;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-body {
+    color: var(--bone-dim);
+    font-size: 15px;
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 0 48px;
+    max-width: calc(1200px - 96px);
+  }
+
+  /* ── TOUR CARDS ── */
+  .tours-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .tour-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: var(--surface);
+  }
+
+  .tour-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s ease, filter 0.7s ease;
+    filter: brightness(0.45) saturate(0.6);
+  }
+
+  .tour-card:hover .tour-card-bg {
+    transform: scale(1.04);
+    filter: brightness(0.55) saturate(0.7);
+  }
+
+  .tour-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+  }
+
+  .tour-card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 32px;
+  }
+
+  .tour-card-location {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .tour-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--bone);
+    margin-bottom: 10px;
+  }
+
+  .tour-card-price {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--bone-dim);
+  }
+
+  .tour-card-arrow {
+    position: absolute;
+    top: 28px; right: 28px;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(232,224,212,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--bone-dim);
+    transition: all 0.3s;
+  }
+
+  .tour-card:hover .tour-card-arrow {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: var(--bone-faint);
+  }
+
+  /* ── STAT ROW ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .stat-item {
+    padding: 48px 36px;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+
+  /* ── ABOUT SPLIT ── */
+  .about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.75) saturate(0.6);
+  }
+
+  .about-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--border);
+    pointer-events: none;
+  }
+
+  .about-accent {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    width: 60%; height: 60%;
+    border: 1px solid var(--gold-dim);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ── GUIDE CARDS ── */
+  .guides-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 56px;
+  }
+
+  .guide-card {
+    background: var(--surface);
+    padding: 40px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .guide-initial {
+    width: 56px; height: 56px;
+    border: 1px solid var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .guide-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--bone);
+    margin-bottom: 4px;
+  }
+
+  .guide-role {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── PRIVATE EVENTS GRID ── */
+  .events-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 56px;
+  }
+
+  .event-item {
+    background: var(--surface);
+    padding: 32px;
+    transition: background 0.2s;
+  }
+
+  .event-item:hover { background: var(--surface2); }
+
+  .event-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold-dim);
+    margin-bottom: 12px;
+  }
+
+  .event-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--bone);
+    font-weight: 400;
+  }
+
+  /* ── TOUR DETAIL PAGE ── */
+  .tour-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .tour-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.4) saturate(0.5);
+  }
+
+  /* ── SPECIFICALLY FOR BACKGROUND IMAGE ON CONYERS GHOST WALK PAGE ── */
+  #page-conyers-walk .tour-hero-bg {
+  background-position: center 5%;
+  }
+
+  .tour-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--black) 0%, transparent 60%);
+  }
+
+  .tour-hero-content {
+    position: relative;
+    padding: 64px 48px;
+    max-width: 800px;
+  }
+
+  .tour-detail-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .tour-description {
+    color: var(--bone-dim);
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 40px;
+  }
+
+  .tour-sidebar {
+    position: sticky;
+    top: 96px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 40px;
+  }
+
+  .sidebar-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .sidebar-price-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    margin-bottom: 32px;
+  }
+
+  .sidebar-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+
+  .sidebar-detail-label {
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+
+  .sidebar-detail-value {
+    color: var(--bone);
+    text-align: right;
+  }
+
+  .sidebar-notice {
+    margin-top: 24px;
+    font-size: 11px;
+    color: var(--bone-faint);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    margin-top: 64px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--bone);
+    transition: color 0.2s;
+    gap: 24px;
+  }
+
+  .faq-question:hover { color: var(--gold); }
+
+  .faq-icon {
+    width: 28px; height: 28px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    color: var(--bone-dim);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .faq-item.open .faq-answer { max-height: 400px; }
+
+  .faq-answer-inner { padding-bottom: 28px; }
+
+  /* ── PRIVATE PAGE ── */
+  .private-hero-text {
+    max-width: 640px;
+  }
+
+  .contact-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 48px;
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .contact-phone {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .contact-detail {
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+  }
+
+  .discount-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--gold-dim);
+    padding: 16px 24px;
+    margin-top: 32px;
+  }
+
+  .discount-pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .discount-text {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bone-dim);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 64px 48px;
+    max-width: 1200px;
+    margin: 100px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bone);
+    margin-bottom: 16px;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    color: var(--bone-dim);
+    line-height: 1.7;
+    max-width: 240px;
+  }
+
+  .footer-heading {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--bone-dim);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--bone); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--bone-faint);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bone-faint);
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .breadcrumb:hover { color: var(--bone-dim); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links, .nav-socials { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 72px 24px; }
+    .tours-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .about-split { grid-template-columns: 1fr; gap: 40px; }
+    .guides-row { grid-template-columns: 1fr; }
+    .events-list { grid-template-columns: repeat(2, 1fr); }
+    .tour-detail-body { grid-template-columns: 1fr; padding: 48px 24px; }
+    .tour-sidebar { position: static; }
+    .contact-box { grid-template-columns: 1fr; gap: 32px; }
+    footer { grid-template-columns: 1fr; padding: 48px 24px; }
+    .footer-bottom { flex-direction: column; gap: 8px; padding: 24px; }
+    .tour-hero-content { padding: 48px 24px; }
+    .divider { margin: 0 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .events-list { grid-template-columns: 1fr; }
+    .hero-cta-row { flex-direction: column; align-items: center; }
+    .mobile-menu { padding: 32px 24px; }
+  }
