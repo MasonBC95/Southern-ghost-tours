@@ -96,7 +96,7 @@
   .nav-socials a {
     color: var(--bone-dim);
     text-decoration: none;
-    font-size: 11px;
+    font-size: 20px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     transition: color 0.2s;
@@ -468,15 +468,12 @@
     align-items: flex-start;
   }
 
-  .guide-initial {
-    width: 56px; height: 56px;
+  .guide-photo {
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    object-fit: cover;
     border: 1px solid var(--gold-dim);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    color: var(--gold);
     flex-shrink: 0;
   }
 
